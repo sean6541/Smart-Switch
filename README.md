@@ -27,7 +27,7 @@ You will also have to drill a hole for the incoming mains supply lead. I intenti
 
 ## Program
 
-At the heart of the smart switch is an Espressif ESP8266 WiFi-enabled microcontroller. Pulling GPIO 13 high enables the power and pulling it low disables it. The program flashed onto the ESP8266 may vary, however if you decide to use the [ESPHome](https://esphome.io) firmware, a basic configuration is provided below:
+At the heart of the smart switch is an Espressif ESP8266 WiFi-enabled microcontroller. Pulling GPIO 5 low enables the power and pulling it high disables it. The program flashed onto the ESP8266 may vary, however if you decide to use the [ESPHome](https://esphome.io) firmware, a basic configuration is provided below:
 ```
 esphome:
   name: smart_switch
@@ -44,6 +44,8 @@ ota:
 
 switch:
   - platform: gpio
-    pin: GPIO13
+    pin:
+      number: GPIO5
+      inverted: True
     name: Smart Switch
 ```
